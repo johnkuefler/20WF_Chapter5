@@ -28,6 +28,10 @@ public class RetailCalculator {
     }
     
     public static double calculateRetail(double wholeSaleCost, double markupPercentage) {
+        if (wholeSaleCost <= 0) {
+            return 0;
+        }
+        
         return wholeSaleCost + (wholeSaleCost * markupPercentage);
     }
 }

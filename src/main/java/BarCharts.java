@@ -16,7 +16,7 @@ import java.util.Scanner;  // Needed for keyboard input
 public class BarCharts {
 
     public static void main(String[] args) {
-         // Create a Scanner object for keyboard input.
+        // Create a Scanner object for keyboard input.
         Scanner keyboard = new Scanner(System.in);
 
         // Get the sales for store 1.
@@ -59,12 +59,18 @@ public class BarCharts {
 
     }
 
-    public static void printBarChart(double numberOfSales) {
+    public static String calculateChartAsterisks(double numberOfSales) {
         String bar = "";
-        int numStars = (int) (numberOfSales / 100);
+        double numStars = (numberOfSales / 100);
+        numStars = Math.ceil(numStars);
         for (int i = 0; i < numStars; i++) {
             bar = bar + "*";
         }
+        return bar;
+    }
+
+    public static void printBarChart(double numberOfSales) {
+        String bar = calculateChartAsterisks(numberOfSales);
         System.out.println(bar);
     }
 }
